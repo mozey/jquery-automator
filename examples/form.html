@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <script src="jquery-3.1.1.js"></script>
+</head>
+<body>
+
+<form action="javascript:" name="Contact">
+    First name: <input type="text" id="name" name="first"><br>
+    Last name: <input type="text" name="last"><br>
+    Email: <input type="text" name="email"><br>
+    <input type="submit"
+           onclick="alert('Hi ' + document.getElementById('name').value)"
+           value="Submit">
+</form>
+
+<script src="../automator.js"></script>
+<script>
+    var automator = $().automator;
+
+    automator("add", "ContactForm", function () {
+        automator("runScript",
+            [
+                {path: "input[name=\"first\"]", value: "John"},
+                {path: "input[name=\"last\"]", value: "Doe"},
+                {path: "input[name=\"email\"]", value: "john@example.com"},
+                {path: "input[type=\"submit\"]"}
+            ]
+        );
+    });
+
+    automator("run", "ContactForm");
+</script>
+
+</body>
+</html>
