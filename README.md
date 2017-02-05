@@ -26,8 +26,9 @@ and then specify which test to run, for example:
 See the examples folder.
 
 `automator` will iterate over the test "path selectors" with a delay 
-(default is 500ms) between each iteration. This is useful when the action for 
-that iteration is something like an Ajax request.
+between each iteration, default delay is 500ms. 
+This is useful when the action for that iteration 
+is something like an Ajax request.
 
 
 

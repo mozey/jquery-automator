@@ -12,15 +12,14 @@
     Last name: <input type="text" name="last"><br>
     Email: <input type="text" name="email"><br>
     <input type="submit"
-           onclick="alert('Hi ' + document.getElementById('name').value)"
-           value="Submit">
+           onclick="alert('Hi ' + document.getElementById('name').value)">
 </form>
 
 <script src="../automator.js"></script>
 <script>
     var automator = $().automator;
 
-    automator("add", "ContactForm", function () {
+    automator("add", "Contact", function () {
         automator("runScript",
             [
                 {path: "input[name=\"first\"]", value: "John"},
@@ -31,7 +30,7 @@
         );
     });
 
-    automator("run", "ContactForm");
+    automator("run", "Contact");
 </script>
 
 </body>

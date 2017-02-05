@@ -3,8 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajax</title>
+    <script src="jquery-3.1.1.js"></script>
 </head>
 <body>
-    TODO
+
+<form action="javascript:" name="Editor">
+    <textarea id="result"></textarea>
+    <br>
+    <input type="submit"
+           onclick="loadResult()">
+</form>
+
+<script src="../automator.js"></script>
+<script>
+    function loadResult() {
+        // Simulate ajax call
+        setTimeout(function() {
+            $("#result").val("This is the result")
+        }, 600)
+    }
+
+    var automator = $().automator;
+
+    automator("add", "Editor", function () {
+        automator("runScript",
+            [
+                {path: "input[type=\"submit\"]"},
+                {path: "#result", callback: function(elem) {
+                    elem.val(elem.val().replace("the", "the edited"))
+                }, delay: 700} // Default delay is 500ms
+            ]
+        );
+    });
+
+    automator("run", "Editor");
+</script>
+
 </body>
 </html>
